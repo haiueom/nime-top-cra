@@ -28,9 +28,9 @@ function Navbar() {
                     <li>
                         <a
                             className="inline-flex items-center rounded-lg px-3 py-2 hover:bg-gray-200"
-                            href="/"
+                            href="https://github.com/haiueom/nime-top-cra"
                             target="_blank"
-                            title="Give star on GitHub"
+                            title="Give star on GitHub" rel="noreferrer"
                         >
                             Github
                             <svg

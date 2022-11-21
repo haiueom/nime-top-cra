@@ -5,7 +5,7 @@ export default function Team() {
             <div className="flex flex-row flex-wrap justify-center items-center gap-4">
                 <div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
                     <img
-                        src="/pp.jpg"
+                        src="/amar-maruf.jpg"
                         alt="Foto Profile"
                         title="Foto Profile"
                         className="rounded-t-lg w-full h-2/3 object-cover"
@@ -15,7 +15,7 @@ export default function Team() {
                 </div>
                 <div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
                     <img
-                        src="/pp.jpg"
+                        src="/ilham-taufiq.jpg"
                         alt="Foto Profile"
                         title="Foto Profile"
                         className="rounded-t-lg w-full h-2/3 object-cover"
@@ -24,21 +24,21 @@ export default function Team() {
                     <p className="mb-auto">Anggota</p>
                 </div><div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
                     <img
-                        src="/pp.jpg"
+                        src="/elki-aditia.jpg"
                         alt="Foto Profile"
                         title="Foto Profile"
                         className="rounded-t-lg w-full h-2/3 object-cover"
                     />
-                    <h2 className="text-2xl font-bold mt-auto">Elki Aditiya</h2>
+                    <h2 className="text-2xl font-bold mt-auto">Elki Aditia A.</h2>
                     <p className="mb-auto">Anggota</p>
                 </div><div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
                     <img
-                        src="/pp.jpg"
+                        src="/muhammad-faisal.jpg"
                         alt="Foto Profile"
                         title="Foto Profile"
                         className="rounded-t-lg w-full h-2/3 object-cover"
                     />
-                    <h2 className="text-2xl font-bold mt-auto">Muh. Faisal</h2>
+                    <h2 className="text-2xl font-bold mt-auto">Muhammad Faizal</h2>
                     <p className="mb-auto">Anggota</p>
                 </div>
             </div>

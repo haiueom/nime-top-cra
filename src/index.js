@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import NotFound from "./pages/notFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Container from "./components/Container";
 import Anime from "./pages/Anime";
 import Manga from "./pages/Manga";
 import Character from "./pages/Character";
@@ -17,7 +16,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Container>
       <Navbar />
       <BrowserRouter>
         <Routes>
@@ -30,7 +28,6 @@ root.render(
         </Routes>
       </BrowserRouter>
       <Footer />
-    </Container>
   </React.StrictMode>
 );
 

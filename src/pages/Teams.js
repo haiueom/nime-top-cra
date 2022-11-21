@@ -1,47 +1,46 @@
+import React, { useState, useEffect } from "react";
+import { Octokit } from "octokit";
+import Loading from "../components/Loading";
+import Person from "../components/Person";
+
 export default function Team() {
-    return (
-        <div className="mx-auto max-w-5xl px-4 py-8">
-            <h1 className="text-4xl font-bold text-center mb-10">Team 2 : Debugger</h1>
-            <div className="flex flex-row flex-wrap justify-center items-center gap-4">
-                <div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
-                    <img
-                        src="/amar-maruf.jpg"
-                        alt="Foto Profile"
-                        title="Foto Profile"
-                        className="rounded-t-lg w-full h-2/3 object-cover"
-                    />
-                    <h2 className="text-2xl font-bold mt-auto">Amar Ma'ruf</h2>
-                    <p className="mb-auto">Ketua</p>
-                </div>
-                <div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
-                    <img
-                        src="/ilham-taufiq.jpg"
-                        alt="Foto Profile"
-                        title="Foto Profile"
-                        className="rounded-t-lg w-full h-2/3 object-cover"
-                    />
-                    <h2 className="text-2xl font-bold mt-auto">Ilham taufiq</h2>
-                    <p className="mb-auto">Anggota</p>
-                </div><div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
-                    <img
-                        src="/elki-aditia.jpg"
-                        alt="Foto Profile"
-                        title="Foto Profile"
-                        className="rounded-t-lg w-full h-2/3 object-cover"
-                    />
-                    <h2 className="text-2xl font-bold mt-auto">Elki Aditia A.</h2>
-                    <p className="mb-auto">Anggota</p>
-                </div><div className="flex flex-col shadow-xl bg-gray-200 rounded-lg w-56 h-80 text-center">
-                    <img
-                        src="/muhammad-faisal.jpg"
-                        alt="Foto Profile"
-                        title="Foto Profile"
-                        className="rounded-t-lg w-full h-2/3 object-cover"
-                    />
-                    <h2 className="text-2xl font-bold mt-auto">Muhammad Faizal</h2>
-                    <p className="mb-auto">Anggota</p>
-                </div>
-            </div>
-        </div>
-    );
+  const [githubs, setgithubs] = useState([]);
+
+  const users = ["MrRuf04", "haiueom", "eladitia", "muhammadfaisal30ppl"];
+
+  const octokit = new Octokit({
+    auth: process.env.REACT_APP_GITHUB_TOKEN,
+  });
+
+  const fetchGithub = async () => {
+    const githubs = [];
+
+    for (let i = 0; i < users.length; i++) {
+      const { data } = await octokit.request("GET /users/{username}", {
+        username: users[i],
+      });
+      githubs.push(data);
+    }
+
+    setgithubs(githubs);
+  };
+
+  useEffect(() => {
+    fetchGithub();
+  });
+
+  if (githubs.length < 4) {
+    return <Loading />;
+  }
+
+  return (
+    <div className="mx-auto max-w-5xl px-4 py-8">
+      <h1 className="mb-10 text-center text-4xl font-bold">
+        Team 2 : Debugger
+      </h1>
+      <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+        <Person data={githubs} />
+      </div>
+    </div>
+  );
 }

@@ -4,43 +4,48 @@ import Loading from "../components/Loading";
 import Person from "../components/Person";
 
 export default function Team() {
-  const [githubs, setgithubs] = useState([]);
-
-  const users = ["MrRuf04", "haiueom", "eladitia", "muhammadfaisal30ppl"];
-
-  const octokit = new Octokit({
-    auth: process.env.REACT_APP_GITHUB_TOKEN,
-  });
-
-  const fetchGithub = async () => {
-    const githubs = [];
-
-    for (let i = 0; i < users.length; i++) {
-      const { data } = await octokit.request("GET /users/{username}", {
-        username: users[i],
-      });
-      githubs.push(data);
-    }
-
-    setgithubs(githubs);
-  };
+  const [githubs, setGithubs] = useState([]);
 
   useEffect(() => {
-    fetchGithub();
-  });
+    const users = ["MrRuf04", "haiueom", "eladitia", "muhammadfaisal30ppl"];
 
-  if (githubs.length < 4) {
-    return <Loading />;
-  }
+    const octokit = new Octokit({
+      auth: process.env.REACT_APP_GITHUB_TOKEN,
+    });
+    const fetchGithubs = async () => {
+      const githubs = await Promise.all(
+        users.map(async (user) => {
+          const { data } = await octokit.request("GET /users/{username}", {
+            username: user,
+          });
+          return data;
+        })
+      );
+
+      setGithubs(githubs);
+    };
+
+    try {
+      fetchGithubs();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-10 text-center text-4xl font-bold">
-        Team 2 : Debugger
-      </h1>
-      <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-        <Person data={githubs} />
-      </div>
-    </div>
+    <>
+      {githubs.length === 0 ? (
+        <Loading />
+      ) : (
+        <div id="teams" className="mx-auto max-w-5xl px-4 py-8">
+          <h1 className="mb-10 text-center text-4xl font-bold">
+            Team 2 : Debugger
+          </h1>
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+            <Person data={githubs} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

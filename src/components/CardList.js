@@ -1,19 +1,18 @@
 import React from "react";
 
-const CharacterList = (props) => {
+const AnimeList = (props) => {
   return (
     <>
-      {props.data.map((character, index) => (
-        <div className="m-2 w-40 bg-white">
+      {props.data.map((anime, index) => (
+        <div key={index.toString()} className="m-2 w-40 bg-white">
           <img
-            title={character.name}
-            alt={"Image " + character.name}
-            src={character.images.webp.image_url}
+            alt="Guitar"
+            src={anime.images.webp.image_url}
             className="mx-auto h-60 w-56 rounded-xl object-cover shadow-xl"
           />
           <div className="py-2">
             <h3 className="break-words text-sm font-semibold text-gray-900">
-              {character.name}
+              {anime['title'] ? ( anime.title) : (anime.name)}
             </h3>
           </div>
         </div>
@@ -22,4 +21,4 @@ const CharacterList = (props) => {
   );
 };
 
-export default CharacterList;
+export default AnimeList;

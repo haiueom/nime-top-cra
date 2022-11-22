@@ -27,7 +27,10 @@ export default function Person(props) {
   return (
     <>
       {props.data.map((github, index) => (
-        <div className="flex h-80 w-56 flex-col rounded-lg bg-gray-200 text-center shadow-xl">
+        <div
+          key={index.toString()}
+          className="flex h-80 w-56 flex-col rounded-lg bg-gray-200 text-center shadow-xl"
+        >
           <img
             src={github.avatar_url}
             alt={orang[index].nama}

@@ -2,7 +2,7 @@ import Spinner from "./Spinner";
 
 export default function Loading() {
   return (
-    <div id="not-found" className="my-4 bg-white">
+    <div id="loading" className="my-4 bg-white">
       <div className="text-center">
         <Spinner />
         <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">

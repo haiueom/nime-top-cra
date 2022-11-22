@@ -3,13 +3,13 @@ import List from "../components/CardList";
 import Loading from "../components/Loading";
 
 const Character = () => {
-  const [characters, setcharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch("https://api.jikan.moe/v4/top/characters")
       .then((res) => res.json())
       .then((raw) => {
-        setcharacters(raw.data);
+        setCharacters(raw.data);
       });
   }, []);
 

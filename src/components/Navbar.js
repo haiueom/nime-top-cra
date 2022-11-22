@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <div id="navbar-atas" className="mb-auto w-full shadow-xl">
+    <div id="navbar" className="mb-auto w-full shadow-xl">
       <nav
         aria-label="Site Nav"
         className="mx-auto flex max-w-3xl items-center justify-between p-4"
@@ -10,7 +10,7 @@ function Navbar() {
           title="Nime Top"
           className="rounded-lg bg-gray-200 px-3 py-2 text-xl font-semibold"
         >
-          <span className="sr-only">Genshin DB</span>
+          <span className="sr-only">Nime Top</span>
           Nime Top
         </a>
 

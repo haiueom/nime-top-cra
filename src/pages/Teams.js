@@ -37,11 +37,11 @@ export default function Team() {
       {githubs.length === 0 ? (
         <Loading />
       ) : (
-        <div id="teams" className="mx-auto max-w-5xl px-4 py-8">
-          <h1 className="mb-10 text-center text-4xl font-bold">
+        <div id="teams">
+          <h2 className="mt-16 mb-10 text-center text-4xl font-bold">
             Team 2 : Debugger
-          </h1>
-          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+          </h2>
+          <div className="mx-auto mb-16 flex max-w-screen-lg flex-wrap justify-center">
             <Person data={githubs} />
           </div>
         </div>
